@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
+    <title>autoprice.am</title>
+    <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='logofavicon.png') }}">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='linearicons.css') }}">
+   <!--<link rel="stylesheet" href="{{ url_for('static', filename='flaticon.css') }}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootsnav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+    <!--<script src="https://www.google.com/recaptcha/enterprise.js?render=6LdGBYkpAAAAALNo06puqd2cwJJs8voQp6C1iGsm"></script>-->
+    <style>
+        /* CSS styles for the loading spinner */
+        #loading-spinner-overlay {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ffffff;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading spinner -->
+    <div id="loading-spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero">
+
+        <!-- top-area Start -->
+        <div class="top-area">
+            <div class="header-area">
+                <!-- Start Navigation -->
+                <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+                    <div class="container">
+
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <div class="logo-container">
+                                <a href="/">
+                                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo">
+                                </a>
+                            </div>
+
+                        </div><!--/.navbar-header-->
+                        <!-- End Header Navigation -->
+
+                    </div><!--/.container-->
+                </nav><!--/nav-->
+                <!-- End Navigation -->
+            </div><!--/.header-area-->
+            <div class="clearfix"></div>
+            
+
+        </div><!-- /.top-area-->
+        <!-- top-area End -->
+
+        <form method="post" action="/">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="model-search-content">
+                        <div class="row align-items-center"> <!-- Added class "align-items-center" -->
+                            <div class="col-md-3 col-sm-6"> <!-- Adjusted column widths -->
+                                <div class="single-model-search">
+                                    <h2 style="text-align: left;">Քմ սկսած</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control" name="km_from" required>
+                                            <option value="default">Քմ, սկս.</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                            <option value="50">50</option>
+                                            <option value="60">60</option>
+                                            <option value="70">70</option>
+                                            <option value="80">80</option>
+                                            <option value="90">90</option>
+                                            <option value="100">100</option>
+                                            <option value="110">110</option>
+                                            <option value="120">120</option>
+                                            <option value="130">130</option>
+                                            <option value="140">140</option>
+                                            <option value="150">150</option>
+                                            <option value="160">160</option>
+                                            <option value="170">170</option>
+                                            <option value="180">180</option>
+                                            <option value="190">190</option>
+                                            <option value="200">200</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6"> <!-- Adjusted column widths -->
+                                <div class="single-model-search">
+                                    <h2 style="text-align: left;">Քմ մինչև</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control" name="km_to" required>
+                                                <option value="default">Մինչև</option><!-- /.option-->
+                                                <option value="20">20</option>
+                                                <option value="30">30</option>
+                                                <option value="40">40</option>
+                                                <option value="50">50</option>
+                                                <option value="60">60</option>
+                                                <option value="70">70</option>
+                                                <option value="80">80</option>
+                                                <option value="90">90</option>
+                                                <option value="100">100</option>
+                                                <option value="110">110</option>
+                                                <option value="120">120</option>
+                                                <option value="130">130</option>
+                                                <option value="140">140</option>
+                                                <option value="150">150</option>
+                                                <option value="160">160</option>
+                                                <option value="170">170</option>
+                                                <option value="180">180</option>
+                                                <option value="190">190</option>
+                                                <option value="200">200</option>
+                                                <option value="250">250</option>
+                                                <option value="300">300</option>
+                                                <option value="350">350</option>
+                                                <option value="400">400</option>
+                                                <option value="450">450</option>
+                                                <option value="500">500</option>
+                                                <option value="1000">1000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6"> <!-- Adjusted column widths -->
+                                    <div class="single-model-search">
+                                        <h2 style="text-align: left;">Մարզ</h2>
+                                    <div class="model-select-icon">
+                                        <select class="form-control" name="marz" id="marz" required>
+
+                                            <option value="default">Մարզ</option>
+                                            <option value="Երևան">Երևան</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="single-model-search">
+                                    <label for="city">Համայնք</label>
+                                    <div class="model-select-icon">
+                                        <select id="city" name="city" class="form-control" required>
+                                            <option value="">Համայնք</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+    const MarzSelect = document.getElementById('marz');
+    const CitySelect = document.getElementById('city');
+    const MarzOptions = {
+        'Երևան': [
+        'Աջափնյակ', 'Արաբկիր', 'Ավան', 'Դավիթաշեն', 'Էրեբունի', 'Քանաքեռ Զեյթուն', 'Կենտրոն',
+        'Մալաթիա Սեբաստիա', 'Նոր Նորք', 'Շենգավիթ', 'Նորք Մարաշ', 'Նուբարաշեն'
+        ]
+    };
+
+    MarzSelect.addEventListener('change', function() {
+        const selectedMarz = this.value;
+        if (selectedMarz in MarzOptions) {
+            CitySelect.innerHTML = ''; // Clear existing options
+            MarzOptions[selectedMarz].forEach(marz => {
+                const option = document.createElement('option');
+                option.text = marz;
+                option.value = marz;
+                CitySelect.appendChild(option);
+            });
+            CitySelect.disabled = false; // Enable the select
+        } else {
+            CitySelect.innerHTML = ''; // Clear options if no make selected
+            CitySelect.disabled = true; // Disable the select
+        }
+    });
+
+    // Trigger change event on page load to initialize car models for the default selected make
+    const event = new Event('change');
+    MarzSelect.dispatchEvent(event);
+});
+                            </script>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="single-model-search">
+                                    <label for="new_building">Նորակառույց</label>
+                                    <div class="model-select-icon">
+                                        <select id="new_building" name="new_building" id="new_building" class="form-control" required>
+                                            <option value=""></option>
+                                            <option value="1">Այո</option>
+                                            <option value="0">Ոչ</option>                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="single-model-search">
+                                    <label for="renovation">Վերանորոգում</label>
+                                    <div class="model-select-icon">
+                                        <select id="renovation" name="renovation" id="renovation" class="form-control" required>
+                                            <option value=""></option>
+                                   </select>
+                                    </div>
+                                </div>
+                            </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const BuildingSelect = document.getElementById('new_building');
+    const RenovationSelect = document.getElementById('renovation');
+    const BuildingOptions = {
+        '1': [
+        'Չվերանորոգված', 'Վերանորոգված'
+        ],
+        '0': [
+        'Վերանորոգված'
+        ]
+    };
+
+    BuildingSelect.addEventListener('change', function() {
+        const selectedBuilding = this.value;
+        if (selectedBuilding in BuildingOptions) {
+            RenovationSelect.innerHTML = ''; // Clear existing options
+            BuildingOptions[selectedBuilding].forEach(building => {
+                const option = document.createElement('option');
+                option.text = building;
+                option.value = building;
+                RenovationSelect.appendChild(option);
+            });
+            RenovationSelect.disabled = false; // Enable the select
+        } else {
+            RenovationSelect.innerHTML = ''; // Clear options if no make selected
+            RenovationSelect.disabled = true; // Disable the select
+        }
+    });
+
+    // Trigger change event on page load to initialize car models for the default selected make
+    const event = new Event('change');
+    BuildingSelect.dispatchEvent(event);
+});
+</script>
+                                <div class="col-md-12 text-center"> <!-- Added class "text-center" -->
+                                    <button id="searchButton" type="submit" class="welcome-btn model-search-btn" disabled>Որոնել</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    {% if average_price and total_cars and car_details %}
+    <div class="results">
+        <div class="results_text">
+        <button class="close-btn" onclick="window.location.href='/'">X</button>
+        <h2>{{car_details}}</h2>
+        <h2><strong>{{average_price}}</strong></h2>
+        <!--<h2>{{ total_cars }}</h2>-->
+        <h2>Հարցումը կատարվեց ՀՀ-ում մաքսազերծված հազարավոր մեքենաների բազայի հիման վրա</h2>
+        <h2>autoprice.am</h2>
+        </div>
+    </div>
+    {% endif %}
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
+
+    <!--contact start-->
+    <footer id="contact"  class="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo">
+                                <a href="/">Autoprice.am</a>
+                            </div>
+                            <p>
+                                Հայաստանի ավտոշուկայում վաճառքի առկա մեքենաների շուկայական միջին գնի հաշվիչ
+                                ՀՀ-ում մաքսազերծված հազարավոր մեքենաների բազայի հիման վրա
+                            </p>
+                            <div class="footer-contact">
+                                <p>autopriceam@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <div class="single-footer-widget">
+                            <ul>
+                                <li><a href="/aboutus">Նախագծի մասին</a></li>
+                                <li><a href="/privacy">Օգտագործման կանոնները</a></li>
+                                <li><a href="/help">Օգնություն</a></li>
+                                <li><a href="/contact">Կապ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            &copy; copyright. designed and developed by <a>N.Y.</a>
+                        </p><!--/p-->
+                    </div>
+                </div>
+            </div><!--/.footer-copyright-->
+        </div><!--/.container-->
+    </footer><!--/.contact-->
+    <script>
+        // Function to show the loading spinner
+        function showSpinner() {
+            document.getElementById('loading-spinner-overlay').style.display = 'block';
+        }
+
+        // Add an event listener to the Search button to call the showSpinner function
+        document.querySelector('.model-search-btn').addEventListener('click', function() {
+            showSpinner();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const kmFromSelect = document.querySelector('select[name="km_from"]');
+        const kmToSelect = document.querySelector('select[name="km_to"]');
+        const MarzSelect = document.querySelector('select[name="marz"]');
+        const CitySelect = document.querySelector('select[name="city"]');
+        const searchButton = document.getElementById('searchButton');
+
+        function checkDropdowns() {
+            if (kmFromSelect.value !== 'default' &&
+                kmToSelect.value !== 'default' &&
+                MarzSelect.value !== 'default' &&
+                CitySelect.value !== 'default') {
+                searchButton.removeAttribute('disabled');
+            } else {
+                searchButton.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        kmFromSelect.addEventListener('change', checkDropdowns);
+        kmToSelect.addEventListener('change', checkDropdowns);
+        MarzSelect.addEventListener('change', checkDropdowns);
+        CitySelect.addEventListener('change', checkDropdowns);
+
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var kmFromSelect = document.querySelector("select[name='km_from']");
+        var kmToSelect = document.querySelector("select[name='km_to']");
+
+        kmFromSelect.addEventListener("change", function() {
+            var selectedYearFrom = parseInt(kmFromSelect.value);
+
+            // Reset all options to enabled
+            kmToSelect.querySelectorAll("option").forEach(function(option) {
+                option.disabled = false;
+            });
+
+            // Disable options less than the selected year from "year_from"
+            kmToSelect.querySelectorAll("option").forEach(function(option) {
+                var year = parseInt(option.value);
+                if (year < selectedYearFrom) {
+                    option.disabled = true;
+                }
+            });
+
+            // Set "year_to" value to match "year_from" value
+            kmToSelect.value = kmFromSelect.value;
+        });
+    });
+</script>
+
+<!-- Replace the variables below. -->
+<!-- <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>-->
+</body>
+
+</html>
