@@ -75,7 +75,7 @@ if __name__ == '__main__':
     app.run(debug=True)        
 
 
-from flask import Flask, render_template, request, redirect
+#from flask import Flask, render_template, request, redirect
 # from selenium import webdriver
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.ui import WebDriverWait
