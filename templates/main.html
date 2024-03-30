@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
-    <title>autoprice.am</title>
-    <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='logofavicon.png') }}">
+    <title>homeprice.am</title>
+    <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='faviconlogo.png') }}">
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='linearicons.css') }}">
    <!--<link rel="stylesheet" href="{{ url_for('static', filename='flaticon.css') }}">-->
@@ -266,7 +266,7 @@
         'Չվերանորոգված', 'Վերանորոգված'
         ],
         '0': [
-        'Վերանորոգված'
+        'Հին Վերանորոգում', 'Նոր Վերանորոգում'
         ]
     };
 
@@ -301,15 +301,15 @@
                 </div>
             </div>
         </form>
-    {% if average_price and total_cars and car_details %}
+    {% if average_price and total_houses and house_details %}
     <div class="results">
         <div class="results_text">
         <button class="close-btn" onclick="window.location.href='/'">X</button>
-        <h2>{{car_details}}</h2>
+        <h2>{{house_details}}</h2>
         <h2><strong>{{average_price}}</strong></h2>
-        <!--<h2>{{ total_cars }}</h2>-->
-        <h2>Հարցումը կատարվեց ՀՀ-ում մաքսազերծված հազարավոր մեքենաների բազայի հիման վրա</h2>
-        <h2>autoprice.am</h2>
+        <!--<h2>{{ total_houses }}</h2>-->
+        <h2>Հարցումը կատարվեց ՀՀ-ում հազարավոր վաճառքի առկա բնակարանների բազայի հիման վրա</h2>
+        <h2>homeprice.am</h2>
         </div>
     </div>
     {% endif %}
@@ -324,14 +324,14 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="single-footer-widget">
                             <div class="footer-logo">
-                                <a href="/">Autoprice.am</a>
+                                <a href="/">Homeprice.am</a>
                             </div>
                             <p>
-                                Հայաստանի ավտոշուկայում վաճառքի առկա մեքենաների շուկայական միջին գնի հաշվիչ
-                                ՀՀ-ում մաքսազերծված հազարավոր մեքենաների բազայի հիման վրա
+                                Հայաստանի անշարժ գույքի շուկայում վաճառքի առկա բնակարանների շուկայական միջին գնի հաշվիչ
+                                ՀՀ-ում վաճառքի առկա հազարավոր բնակարանների բազայի հիման վրա
                             </p>
                             <div class="footer-contact">
-                                <p>autopriceam@gmail.com</p>
+                                <p>homepriceam@gmail.com</p>
                             </div>
                         </div>
                     </div>

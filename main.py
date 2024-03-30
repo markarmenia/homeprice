@@ -11,31 +11,73 @@ db_connection = psycopg2.connect(
     port="5432")
 
 
-def select_car(car_make_input, car_model_input, year_from, year_to):
-    cursor = db_connection.cursor()
-    cursor.execute("SELECT price FROM car_database WHERE car_make = %s AND car_model = %s AND year BETWEEN %s AND %s", (car_make_input, car_model_input, year_from, year_to))
-    rows = cursor.fetchall()
-    if rows:
-        prices = [row[0] for row in rows]
-        average_price_round = round(statistics.median(prices))
-        average_price = f'Շուկայական միջին գինը: ${average_price_round}'
-        total_cars = f'Շուկայում վաճառքի առկա մոտավոր քանակ: {len(prices)}'
-        car_details = f'{year_from}-{year_to} {car_make_input} {car_model_input}'
-        return average_price, total_cars, car_details
-    else:
-        return f'Տեղեկություն չի գտնվել՝ փորձեք ընդլայնել տարեթվերը', f'Շուկայում վաճառքի առկա քանակ: 0', f'{year_from}-{year_to} {car_make_input} {car_model_input}'
-
+def select_car(km_input, km2_input, marz, district, bld_type, renovation_state):
+    if bld_type == '1' and renovation_state=='Չվերանորոգված':
+        cursor = db_connection.cursor()
+        cursor.execute("SELECT price FROM new_realestate_notrenovated WHERE region = %s AND area BETWEEN %s AND %s", (district, km_input, km2_input))
+        rows = cursor.fetchall()
+        if rows:
+            prices = [row[0] for row in rows]
+            average_price_round = round(statistics.median(prices))
+            average_price = f'Շուկայական միջին գինը: ${average_price_round}'
+            total_houses = f'Շուկայում վաճառքի առկա մոտավոր քանակ: {len(prices)}'
+            house_details = f'{km_input}քմ-{km2_input}քմ Նորակառույց Չվերանորոգված {marz} {district}'
+            return average_price, total_houses, house_details
+        else:
+            return f'Տեղեկություն չի գտնվել՝ փորձեք ընդլայնել տարեթվերը', f'Շուկայում վաճառքի առկա քանակ: 0', f'{year_from}-{year_to} {car_make_input} {car_model_input}'
+    elif bld_type == '1' and renovation_state=='Վերանորոգված':
+        cursor = db_connection.cursor()
+        cursor.execute("SELECT price FROM new_realestate_renovated WHERE region = %s AND area BETWEEN %s AND %s", (district, km_input, km2_input))
+        rows = cursor.fetchall()
+        if rows:
+            prices = [row[0] for row in rows]
+            average_price_round = round(statistics.median(prices))
+            average_price = f'Շուկայական միջին գինը: ${average_price_round}'
+            total_houses = f'Շուկայում վաճառքի առկա մոտավոր քանակ: {len(prices)}'
+            house_details = f'{km_input}քմ-{km2_input}քմ Նորակառույց Վերանորոգված {marz} {district}'
+            return average_price, total_houses, house_details
+        else:
+            return f'Տեղեկություն չի գտնվել՝ փորձեք ընդլայնել տարեթվերը', f'Շուկայում վաճառքի առկա քանակ: 0', f'{year_from}-{year_to} {car_make_input} {car_model_input}'
+    elif bld_type == '0'and renovation_state=='Նոր Վերանորոգում':
+        cursor = db_connection.cursor()
+        cursor.execute("SELECT price FROM old_realestate_renovated WHERE region = %s AND area BETWEEN %s AND %s", (district, km_input, km2_input))
+        rows = cursor.fetchall()
+        if rows:
+            prices = [row[0] for row in rows]
+            average_price_round = round(statistics.median(prices))
+            average_price = f'Շուկայական միջին գինը: ${average_price_round}'
+            total_houses = f'Շուկայում վաճառքի առկա մոտավոր քանակ: {len(prices)}'
+            house_details = f'{km_input}քմ-{km2_input}քմ Նոր Վերանորոգում {marz} {district}'
+            return average_price, total_houses, house_details
+        else:
+            return f'Տեղեկություն չի գտնվել՝ փորձեք ընդլայնել տարեթվերը', f'Շուկայում վաճառքի առկա քանակ: 0', f'{year_from}-{year_to} {car_make_input} {car_model_input}'
+    elif bld_type == '0'and renovation_state=='Հին Վերանորոգում':
+        cursor = db_connection.cursor()
+        cursor.execute("SELECT price FROM old_realestate_partiallyrenovated WHERE region = %s AND area BETWEEN %s AND %s", (district, km_input, km2_input))
+        rows = cursor.fetchall()
+        if rows:
+            prices = [row[0] for row in rows]
+            average_price_round = round(statistics.median(prices))
+            average_price = f'Շուկայական միջին գինը: ${average_price_round}'
+            total_houses = f'Շուկայում վաճառքի առկա մոտավոր քանակ: {len(prices)}'
+            house_details = f'{km_input}քմ-{km2_input}քմ Հին Վերանորոգում {marz} {district}'
+            return average_price, total_houses, house_details
+        else:
+            return f'Տեղեկություն չի գտնվել՝ փորձեք ընդլայնել տարեթվերը', f'Շուկայում վաճառքի առկա քանակ: 0', f'{year_from}-{year_to} {car_make_input} {car_model_input}'
+        
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        car_make_input = request.form['car_make']
-        car_model_input = request.form['car_model']
-        year_from = request.form['year_from']
-        year_to = request.form['year_to']
+        km_input = request.form['km_from']
+        km2_input = request.form['km_to']
+        marz = request.form['marz']
+        district = request.form['city']
+        bld_type = request.form['new_building']
+        renovation_state = request.form['renovation']
 
-        average_price, total_cars, car_details = select_car(car_make_input, car_model_input, year_from, year_to)
+        average_price, total_houses, house_details = select_car(km_input, km2_input, marz, district, bld_type, renovation_state)
 
-        return render_template('main.html', average_price=average_price, total_cars=total_cars, car_details=car_details)
+        return render_template('main.html', average_price=average_price, total_houses=total_houses, house_details=house_details)
 
     return render_template('main.html')
 

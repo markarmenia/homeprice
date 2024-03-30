@@ -30,7 +30,7 @@ img {
     display: block; /* Ensure the image is a block element */
     max-width: 100%; /* Make sure the image doesn't exceed its container's width */
     height: 250px; /* Maintain aspect ratio */
-    margin-top: -60px;
+    margin-top: -70px;
     margin-left: -30px;
 }
 
@@ -194,7 +194,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f5f7fa;}
     left: 0;
     width: 100%;
     height: 46%;
-    background: rgba(231, 222, 222, 0.6); /*.background */
+    background: rgba(233, 233, 233, 0.6); /*.background upper */
 }
 .header-area{position: absolute;top:0;left:0;width: 0%;z-index: 99;}
 
@@ -219,7 +219,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f5f7fa;}
     display: inline-block;
     width: 230px;
     height: 60px;
-    background: #fa4e4e;
+    background: #FDA720;
     color: #fff;
     border-radius: 3px;
     margin-top: 55px;
@@ -230,7 +230,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f5f7fa;}
     transition: .3s linear;
 }
 .welcome-btn:hover{
-    background: #0102fa;
+    background: #EC1C24;
 }
 /*.welcome-hero-txt*/
 
@@ -351,7 +351,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f5f7fa;}
         12. Contact
 --------------------------------------*/
 .contact {
-    background: #884a4a;
+    background: #004AAD; /*background color lowe part*/
 }
 .footer-top {padding: 112px 0 72px;}
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
+    <title>homeprice.am</title>
+    <link rel="shortcut icon" type="image/icon" href="{{ url_for('static', filename='logofavicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='aboutus.css') }}">
+</head>
+<body>
+<section id="home" class="welcome-hero">
+    <div class="top-area">
+        <div class="header-area">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+                <div class="container">
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <div class="logo-container">
+                            <a href="/">
+                                <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo">
+                            </a>
+                        </div>
+
+                    </div><!--/.navbar-header-->
+        <!--<div class="clearfix"></div>
+        <a href="javascript:history.back()" class="back-button">Back</a>-->
+    </div><!-- /.top-area-->
+    <div class="container">
+    <div class="content">
+        <h2>Նախագծի մասին</h2>
+
+        <p>Homeprice.am կայքն օգնում է հասկանալ անշարժ գույքի միջին շուկայական գինը Հայաստանում։</p>
+                                    
+        <p>Homeprice.am-ն վերլուծում է Հայաստանի անշարժ գույքի շուկան և պարզում բնակարանի կամ տան ներկայիս միջին շուկայական գինը հաշվի առնելով վերանորոգման աստիճանը, գտնվելու վայրը և այլն:</p>
+                        
+        <p>Հարգանքով`</p>
+            
+        <p>Homeprice.am-ի թիմ</p>
+    </div>
+    </div>
+</section>
+     <!--contact start-->
+     <footer id="contact"  class="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        <div class="single-footer-widget">
+                            <ul>
+                                <li><a href="/privacy">Օգտագործման կանոնները</a></li>
+                                <li><a href="/help">Օգնություն</a></li>
+                                <li><a href="/contact">Կապ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            &copy; copyright. designed and developed by <a>N.Y.</a>
+                        </p><!--/p-->
+                    </div>
+                </div>
+            </div><!--/.footer-copyright-->
+        </div><!--/.container-->
+    </footer><!--/.contact-->
+    <!--contact end-->
+
+
+    
+</body>
+
+</html>

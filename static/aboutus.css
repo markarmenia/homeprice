@@ -1,0 +1,123 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* Header Styles */
+header {
+    background-color: #e7dede99;
+    color: #e7dede99;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container img {
+    display: block; /* Ensure the image is a block element */
+    max-width: 100%; /* Make sure the image doesn't exceed its container's width */
+    height: 250px; /* Maintain aspect ratio */
+    margin-top: -60px;
+    margin-left: -30px;
+}
+
+
+.navbar {
+    border: none;
+}
+
+.navbar-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Content Styles */
+#welcome-hero {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.contact {
+    background: #004AAD;
+}
+
+
+
+.single-footer-widget h2 {
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 43px;
+}
+.single-footer-widget ul li {
+    display:  inherit;
+    -webkit-transition: .5s; 
+    -moz-transition:.5s; 
+    -ms-transition:.5s; 
+    -o-transition:.5s;
+    transition: .5s;
+}
+.single-footer-widget ul li:hover{
+    -webkit-transform:translateX(10px);
+    -moz-transform:translateX(10px);
+    -ms-transform:translateX(10px);
+    -o-transform:translateX(10px);
+    transform:translateX(10px);
+}
+
+.single-footer-widget ul li a {
+    font-size:  16px;
+    color:  #cfd0e3;
+    font-weight:  300;
+    padding-bottom: 13px;
+}
+
+
+.footer-copyright {
+    padding: 20px 0 17px;
+    border-top: 1px solid #434859;
+}
+.footer-copyright p,.footer-copyright p a {
+    color: #a8a9bf;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fa4e4e; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
